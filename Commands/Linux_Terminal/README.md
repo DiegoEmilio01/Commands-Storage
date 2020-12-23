@@ -42,4 +42,4 @@ fi
 El prompt consiste en toda la línea previa al input de comandos. En este caso está el usuario del sistema operativo (verde claro), seguido por la carpeta donde se ejecuta la terminal (azul obscuro), luego la branch actual entre paréntesis (celeste) y finalmente el símbolo que indica dónde escribir (blanco). La marca de la branch aparece siempre y cuando se esté dentro de un repositorio de git. 
 
 
-![Pantallazo de una terminal de linux con el prompt personalizado](https://raw.githubusercontent.com/DiegoEmilio01/Programs-Storage/master/Commands/Linux_Terminal/promt_linux.png "Prompt personalizado")
+![Pantallazo de una terminal de linux con el prompt personalizado](https://raw.githubusercontent.com/DiegoEmilio01/Programs-Storage/master/Assets/promt_linux.png "Prompt personalizado")
