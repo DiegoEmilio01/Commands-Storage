@@ -1,0 +1,23 @@
+- RUBY VERSION MANAGER comandos útiles:
+
+• rvm get stable		# Actualiza RVM.
+• rvm list			# Lista versiones de Ruby instaladas localmente.
+• rvm list known		# Lista todas las versiones de Ruby disponibles para descargar.
+• rvm install [version]		# Instala versión especificada de Ruby • e.g: rvm install 2.6.3
+• rvm use [version]		# Cambia versión de Ruby usada por el sistema.
+• rvm --default use [version]   # Cambia la versión default.
+• rvm remove [version]		# Desinstala una versión de Ruby.
+
+
+- RAILS
+
+gem install rails -v 5.2.4.2			# Instala version de rails
+gem 'pg'					# Escribir en Gemfile. Sirve para compatibilidad con psql.
+rails -v					# Versión de rails
+bundle install					# Instala gemas del Gemfile (ejecutar dentro del directorio del proyecto).
+rails new nombre-app -d postgresql		# Crea app utilizando psql como modelo. Hey que hacer las config/database.yml de la bd creada en psql.
+rails webpacker:install				# NO NECESARIO EN NUESTRA VERSION DE RAILS. Añade webpacker a la aplicación.
+rails generate controller nombre accion1 ...	# Las acciones son opcionales, crea un controlador.
+rails generate model nombre atributo_1:tipo ... # Crea una tabla en nuestra bbdd.
+rails server					# Levanta el server para correr la app (ejecutar dentro de la carpeta).
+rails db:migrate				# Realiza las migraciones correspondientes en nuestra DB.

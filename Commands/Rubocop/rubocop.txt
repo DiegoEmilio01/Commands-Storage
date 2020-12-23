@@ -1,0 +1,6 @@
+- RUBOCOP
+
+https://github.com/rubocop-hq/rubocop
+
+rubocop						# Ver ofensas a las restricciones.
+rubocop -a					# Intentar arreglar automáticamente las ofensas.

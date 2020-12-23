@@ -1,0 +1,30 @@
+- NODE
+
+editor.renameOnType VSCODE
+
+- NODE VERSION MANAGER
+
+https://github.com/nvm-sh/nvm Buscar ahí el comando de instalación.
+
+nvm list		# Lista las versiones instaladas.
+nvm install 12.18.3	# Instala la versión especificada.
+nvm current		# Muestra qué versión se está utilizando.
+nvm use 12.18.3		# Establece usar dicha versión.
+npm install -g yo	# Usa node package manager para instalar globalmente Yeoman.
+
+
+- YARN
+
+yarn install				# Instala dependencias.
+yarn dev				# Levanta la app.
+yarn sequelize db:migrate		# Ejecuta las migraciones.
+yarn sequelize seed:create --name model	# Crea seed con nombre model (plural).
+yarn sequelize db:seed:all		# Ejecuta todas las seeds.
+yarn sequelize db:migrate:undo:all	# Deshacer las migraciones.
+
+
+- Yeoman
+
+yo @iic2513/template name					# Crea aplicación de nombre "name" utilizando el template.
+yo @iic2513/template:model name atr1:type,atr2:type --create	# Crea modelo. Types: string, text, integer, boolean, etc.
+

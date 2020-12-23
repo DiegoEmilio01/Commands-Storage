@@ -1,0 +1,35 @@
+- HEROKU (ejecutar dentro del repositorio de github)
+
+Crear el Procfile (web:bundle exec puma -C config/puma.rb), loguearse a hero, crear app hero, setear lenguaje, pushear a hero, migrar la bbdd, abrir la app.
+
+heroku login							# Iniciar sesión heroku.
+heroku create app-name					    	# Crear app en heroku.
+heroku logs --tail						# Ve los logs recibidos por la app.
+heroku buildpacks:set -a app-name heroku/ruby   		# Setea el lenguaje de la app. heroku/nodejs (creo)
+heroku git:remote -a app-name					# Setear que la app no es un repo entero sino que está dentro de otro repo.
+
+ROR
+git push heroku master						# Pushear a heroku.
+heroku run rake db:migrate					# Migra la base de datos a heroku.
+heroku run rake db:seed 					# Migra la seed a heroku.
+heroku open				            		# Abre el link de la app en heroku.
+
+NODE.js
+
+git subtree push --prefix path heroku master			# Después del de arriba. https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
+heroku run sequelize db:seed:all 				# Migra la seed a heroku. (la bdd se migra auto)
+
+heroku local web					       	# Corre la app localmente (tambien se puede con el server de rails).
+heroku pg:psql						        # Entrar a la base de datos psql de la app en heroku.
+heroku pg:backups:capture --app app-name			# Crea el backup. Guardar el nombre del respaldo. (ej: b001)
+heroku pg:backups --app app-name				# Chequear los backups.
+heroku pg:backups:restore b101 DATABASE_URL --app app-name	# Restaurar un backup.
+heroku addons:create heroku-postgresql:hobby-dev		# Crea base de datos PosgreSQl.
+
+
+- RUBOCOP
+
+https://github.com/rubocop-hq/rubocop
+
+rubocop						# Ver ofensas a las restricciones.
+rubocop -a					# Intentar arreglar automáticamente las ofensas.

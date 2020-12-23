@@ -1,0 +1,53 @@
+- MONGODB
+
+sudo systemctl start mongod							# Iniciar el proceso de mongodb.
+sudo systemctl status mongod							# Revisar que esté corriendo.
+sudo systemctl stop mongod							# Detener el proceso de mongodb.
+sudo systemctl restart mongod							# Reiniciar el proceso.
+mongo										# Iniciar la consola de mongodb mientras se corre el proceso.
+use db										# En la consola para usar una db.
+show collections								# Dentro de la db para ver las colecciones.
+mongoimport --db bbdd --collection col --drop --file col.json --jsonArray	# Importa un "col.json" en la bbdd llamada "bbdd" como colección "col".
+
+-- OPERACIONES (ojo ;)
+db.collection.find({atr_1:input}, {atr_2:1, atr_3:0})			# Busca en la db en uso los datos de la collection con el atributo que sea igual que el input (o lo contenga si es una lista). Mostrando sólo los atr proyectados. (Sacar el _id).
+	atr: [input_1, ...]						# Todos los que ese atributo hagan match con alguno de la lista.
+	.pretty()							# Muestra todo más legible.
+	.sort({atr: 1})							# Ordena por los atributos pasados.
+db.collection.find({atr:{$regex:"input"}})				# Busca que el atr contenga el texto input.
+	$gt: input							# Mayor que. $gte mayor o igual.
+	$lt: input							# Mayor que. $lte menor o igual.
+	$ne: input							# No el input.
+	$and: [condición_1, ...]					# Revisa que se cumplan todas las condiciones.
+	$or: [condición_1, ...]						# Revisa que se cumplan las condiciones por un OR.
+	$all: [input_1, ...]						# Verifica que en una lista deben estar todos los valores dados.
+	$in: [input_1, ...]						# Verifica que en una lista debe esta al menos uno de los valores dados.
+	$nin: [input_1, ...]						# Verifica que en una lista no debe haber ninguno de los valores dados.
+db.usuarios.aggregate([{$group: {_id: null, total: {$sum: "$atr"}}}])	# Agrega, agrupa, y suma por el atributo. (También se puede usar $avg).
+	{$group: {_id: "$atr_1", total: {$sum: "$atr_2"}		# Agrupa por atr_1 y suma los atr_2.
+	{$group: {_id: "$atr_1", total: {$sum: {$sum: "$atr_2"}}	# Agrupa por atr_1 y suma los valores de atr_2 si es una lista.
+	{$match: {atr: input}}						# Dentro de la lista para hacer match.
+db.getCollectionInfos({name:"collection"})				# Ver info de cierta colección.
+db.changeUserPassword("user", "password")				# Cambiar la contraseña de la db.
+db.collection.getIndexes()						# Printea los índices.
+db.collection.createIndex({atr:1})					# Crea un índice por dicho atr.
+db.collection.createIndex({atr:"text"})					# Crea un índice de texto del tipo TF-IDF.
+db.collection.dropIndex("index")					# Drop del índice indicado.
+db.collection.find({$text: {$search: "input"}})				# Utiliza el índice de texto para buscar eficietemente. Funciona como google.
+	"input_1 input_2 ..."						# Busca mediante OR los diferentes inputs. (Stemming: Case insensitive y completa el input si al menos una palabra entera es encontrada).
+	" \"input textual\"  "						# Busca textual el input.
+	" \"input_1\" \"input_2\" "					# Busca input_1 Y input_2 ambos textuales. (Stemming: Case insensitive y completa el input si al menos una palabra entera es encontrada).
+	"input_1 -\"input_2\" "}					# Hay que buscar al menos un input_1 para descartar input_2. (También "input_1 -input_2").
+db.coll.find({$text: {$search: ""}}).sort({score: {$meta: "text"}})	# Ordena el resultado de la consulta por índice.
+db.collection.update({}, {$set: {atr: value}}, false, true)		# Actualiza todos los valores.
+
+
+db.messages.find({$text: {$search: "deseable \"requerida\" -prohibida "}}, {score: {$meta: "textScore"}}).sort({score: {$meta: "textScore"}})
+
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
+
+
+
+
+

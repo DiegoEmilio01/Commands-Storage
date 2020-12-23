@@ -1,2 +1,3 @@
 # Commands-Storage
-Numerous tools commands.
+
+Numerous tools commands by Diego Bustamante.

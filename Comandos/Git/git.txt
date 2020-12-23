@@ -1,0 +1,44 @@
+https://try.github.io/
+https://code.visualstudio.com/Docs/editor/versioncontrol
+
+- SUBIR CAMBIOS AL REPO ORIGINAL:
+
+git status              # Verificar el estado. (gits)
+git add --all			# Agregar todo lo nuevo a "querer cambiarlo". (gita)
+git commit -m "mensaje"	# Generar el commit y confirmar los cambios con su respectivo mensaje. (gitc "mensaje")
+git push                # Enviar los cambios al repositorio en GitHub. (gitp)
+
+
+
+- GIT BRANCHES
+
+git checkout -b new_branch      # Crea nueva branch. (gith -b)
+git checkout branch		        # Cambiarse de branch.
+git branch			            # Ver todas las branches. (gitb)
+git branch -d branch		    # Eliminar branch.
+git push origin branch	    	# gita, gitc y después este comando para pushear la branch. En github hay que hacer el pull request y el merge.
+git reset --hard origin/master	# Resetea cuando hay commits en la branch y estos cambios deben ser descartados.
+git revert <commit hash>        # Revertir un commit.
+
+- REVERTIR un commit y que no esté el historial (borrar todo el comtenido de ese comando):
+
+git filter-branch -f
+git reset HEAD^ --hard
+git push -f
+
+
+- Borrar info sensible de todo el historial
+
+https://docs.github.com/en/free-pro-team@latest/github/managing-large-files/removing-files-from-a-repositorys-history
+
+- ACTUALIZAR el repo a un estado anterior de un commit pasado:
+
+git checkout <commit hash>
+
+
+- MERGE:
+
+git stash
+git pull
+git stash pop
+
