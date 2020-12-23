@@ -1,5 +1,3 @@
-<style> code { font-family: monospace} </style>
-
 # [Heroku](https://www.heroku.com/)
 
 Ejecutar comandos dentro del repositorio de la app.

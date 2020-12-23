@@ -8,9 +8,9 @@
 | git add --all           | Agregar todos los nuevos cambios a 'por cambiar'. |
 | git commit -m "mensaje" | Generar un commit. Confirma los cambios con su respectivo mensaje. |
 | git push                | Enviar los cambios al repositorio en GitHub. |
-| git revert commit_hash | Revertir un commit. |
+| git revert hash_commit | Revertir un commit. |
 
-## Manejo de branches
+## Manejo de branches (ramas de trabajo)
 
 | Comando                     | Descripción           |
 | -------------               |:-------------         |
