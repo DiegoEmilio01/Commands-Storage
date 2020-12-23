@@ -42,4 +42,14 @@ fi
 El prompt consiste en toda la parte previa al input en la terminal del sistema operativo. En este caso está el usuario del sistema operativo (verde claro), seguido por la carpeta donde se ejecuta la terminal (azul obscuro), luego la branch actual entre paréntesis (celeste) y finalmente el símbolo que indica dónde escribir (blanco). La marca de la branch aparece siempre y cuando se esté dentro de un repositorio de git. 
 
 
-![Pantallazo de una terminal de linux con el prompt personalizado](https://raw.githubusercontent.com/DiegoEmilio01/Programs-Storage/master/Assets/promt_linux.png "Terminal personalizada")
+![Pantallazo de una terminal de linux con el prompt personalizado](../../Assets/promt_linux.png "Terminal personalizada")
+
+
+## Comandos útiles
+
+| Comando                 | Descripción           |
+| -------------           |:-------------         |
+| sudo apt update | Actualiza la información disponible sobre actualizaciones. |
+| sudo apt upgrade | Efectúa las actualizaciones según la información que se posee. |
+| sudo dpkg -i programa.deb  | Instalar un .deb en Ubuntu. |
+| code --list-extensions \| xargs -L 1 echo code --install-extension | Imprime en consola un código para instalar las extensiones VS Code instaladas localmente. |

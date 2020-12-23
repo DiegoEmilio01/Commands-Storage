@@ -33,5 +33,5 @@ El procedimiento es similar (ver documentación).
 | Comando                         | Descripción           |
 | -------------                   |:-------------         |
 | `heroku buildpacks:set -a nombre-app heroku/nodejs`   | Setea el lenguaje de la app. |
-| `git subtree push --prefix path heroku master`  | Para correr un subdirectorio en Node.js ([info original](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f))|
+| `git subtree push --prefix path heroku master`  | Para correr un subdirectorio en Node.js ([info original](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f)). |
 | `heroku run sequelize db:migrate`         | Migra la base de datos a heroku (uso similar a sequelize). |
