@@ -1,6 +1,6 @@
 # [PostgreSQL](https://www.postgresql.org/)
 
-Clickea para una [guía de instalación](https://www.postgresql.org/download/) en distintos sistemas operativos. `PSQL` se usará como abreviatura para PostgreSQL.
+Clickea para una [guía de instalación](https://www.postgresql.org/download/) en distintos sistemas operativos. `PSQL` se usará como abreviatura para PostgreSQL. Esta guía está pensada para la versión 12.2.
 
 ## Comandos sobre  administración
 
