@@ -22,4 +22,4 @@
 
 ## Borrar información sensible de todas las versiones
 
-[Documentación oficial de Github](https://docs.github.com/en/free-pro-team@latest/github/managing-large-files/removing-files-from-a-repositorys-history)
+[Documentación oficial de Github](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/removing-sensitive-data-from-a-repository)

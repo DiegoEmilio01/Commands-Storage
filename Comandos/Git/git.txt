@@ -29,7 +29,7 @@ git push -f
 
 - Borrar info sensible de todo el historial
 
-https://docs.github.com/en/free-pro-team@latest/github/managing-large-files/removing-files-from-a-repositorys-history
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/removing-sensitive-data-from-a-repository
 
 - ACTUALIZAR el repo a un estado anterior de un commit pasado:
 
