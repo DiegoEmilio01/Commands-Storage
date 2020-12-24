@@ -15,23 +15,31 @@ Ejecutar comandos dentro del repositorio de la app.
 | `heroku pg:backups --app nombre`          | Imprime los backups.                  |
 | `heroku pg:backups:restore b101 DATABASE_URL --app nombre` | Restaurar un backup. |
 
-## En [Ruby on Rails](../RVM_Rails) y Rake
+## Usando [Ruby on Rails](../RVM_Rails) y [Rake](https://github.com/ruby/rake)
 
-Resumen del procedimiento: Crear el Procfile (web:bundle exec puma -C config/puma.rb), loguearse a Heroku, crear app Heroku, setear lenguaje, pushear a Heroku, migrar la bbdd, abrir la app.
+Resumen del procedimiento:
 
-| Comando                       | Descripción                                           |
-| -------------                 | :-------------                                        |
-| `heroku buildpacks:set -a nombre heroku/ruby` | Setea el lenguaje de la app.          |
-| `heroku run rake db:migrate`  | Migra la base de datos a Heroku (uso similar a Rake). |
-| `heroku run rake db:seed`     | Migra la seed a Heroku.                               |
-| `heroku git:remote -a nombre` | Setear que la app está dentro de un repo de Git.      |
+- Crear el `Procfile` con `web:bundle exec puma -C config/puma.rb` dentro de ella.
+- Loguearse a Heroku.
+- Crear app Heroku
+- Setear lenguaje.
+- Pushear a Heroku.
+- Migrar la base de datos.
+- Abrir la app.
 
-## En Node.js y Sequelize
+| Comando                       | Descripción                                             |
+| -------------                 | :-------------                                          |
+| `heroku buildpacks:set -a nombre heroku/ruby` | Setea el lenguaje de la app `nombre`.   |
+| `heroku run rake db:migrate`  | Corre las migraciones en la base de datos de Heroku.    |
+| `heroku run rake db:seed`     | Corre la seed en Heroku.                                |
+| `heroku git:remote -a nombre` | Setear que la app está dentro de un repositorio de Git. |
 
-El procedimiento es similar (ver documentación).
+## Usando [Node.js](../NVM_Yarn_Yeoman) y [Sequelize](../NVM_Yarn_Yeoman)
 
-| Comando                                         | Descripción                   |
-| -------------                                   | :-------------                |
-| `heroku buildpacks:set -a nombre heroku/nodejs` | Setea el lenguaje de la app.  |
-| `git subtree push --prefix path heroku master`  | Para correr un subdirectorio en Node.js ([info original](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f)). |
-| `heroku run sequelize db:migrate`         | Migra la base de datos a Heroku (uso similar a Sequelize). |
+El procedimiento es similar (ver documentación en Heroku).
+
+| Comando                                         | Descripción                           |
+| -------------                                   | :-------------                        |
+| `heroku buildpacks:set -a nombre heroku/nodejs` | Setea el lenguaje de la app `nombre`. |
+| `git subtree push --prefix path heroku master`  | Para hacer deploy de un subdirectorio en Node.js ([info original](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f)). `path` es la ruta hasta la carpeta de la app. |
+| `heroku run sequelize db:migrate`         | Corre las migraciones en la base de datos de Heroku. (uso similar a Sequelize). |
