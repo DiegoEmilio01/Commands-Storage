@@ -1,25 +1,25 @@
 # [Git](https://git-scm.com/)
 
-## Subir cambios
+## Upload local changes
 
-| Comando                 | Descripción           |
-| -------------           |:-------------         |
-| git status              | Verificar el estado del repositorio local (compara). |
-| git add --all           | Agregar todos los nuevos cambios a 'por cambiar'. |
-| git commit -m "mensaje" | Generar un commit. Confirma los cambios con su respectivo mensaje. |
-| git push                | Enviar los cambios al repositorio en GitHub. |
-| git revert commit_hash | Revertir un commit. |
+| Command                   | Description                                           |
+| -------------             | :-------------                                        |
+| `git status`              | Compare local repository with its online counterpart. |
+| `git add --all`           | State which changes are ready to upload.              |
+| `git commit -m "message"` | Generate a commit with its message.                   |
+| `git push`                | Send the commit to the repository on [GitHub](https://github.com/). |
+| `git revert hash_commit`  | Revert the repository to a previous commit. |
 
-## Manejo de branches
+## Branches and workflow
 
-| Comando                     | Descripción           |
-| -------------               |:-------------         |
-| git checkout -b new_branch  | Crea nueva branch. |
-| git checkout branch         | Cambiarse de branch. |
-| git branch                  | Ver todas las branches. |
-| git branch -d branch        | Eliminar branch |
-| git push origin branch      | Análogo a git push. En github hay que hacer el pull request y el merge. |
+| Command                       | Description                     |
+| -------------                 | :-------------                  |
+| `git checkout -b new_branch`  | Create the branch `new_branch`. |
+| `git checkout name`           | Change to branch `name`.        |
+| `git branch`                  | Print a list of all branches.   |
+| `git branch -d name`          | Delete branch `name`.           |
+| `git push origin name`        | Analogous to `git push`. Then a pull request has to be created and a merge executed. |
 
-## Borrar información sensible de todas las versiones
+## Delete sensitive information from all version
 
-[Documentación oficial de Github](https://docs.github.com/en/free-pro-team@latest/github/managing-large-files/removing-files-from-a-repositorys-history)
+[Github oficial documentation](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/removing-sensitive-data-from-a-repository)
