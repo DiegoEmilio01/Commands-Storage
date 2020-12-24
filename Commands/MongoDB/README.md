@@ -1,56 +1,56 @@
 # [MongoDB](https://www.mongodb.com/)
 
-Clickea para una guía de instalación para [Debian](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/) o [Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/). Los comandos sobre levantar procesos pueden variar, estos fueros pensados para [Debian Buster](https://www.debian.org/releases/buster/index.es.html) y [systemd](https://wiki.debian.org/systemd).
+Click to go to an installation guide for [Debian](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/) or [Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/). The commands that involves processes may not be the same, this guide was made assuming [Debian Buster](https://www.debian.org/releases/buster/index.es.html) operating system and [systemd](https://wiki.debian.org/systemd) as system and service manager.
 
-## Comandos sobre procesos y administración
+## Processes and administration commands
 
-| Comando                       | Descripción                     |
-| -------------                 |:-------------                   |
-| `sudo systemctl start mongod`   | Iniciar el proceso de MongoDB.  |
-| `sudo systemctl status mongod`  | Iniciar el proceso.             |
-| `sudo systemctl stop mongod`    | Detener el proceso.             |
-| `sudo systemctl restart mongod` | Reiniciar el proceso.           |
-| `mongo`                         | Iniciar la consola de MongoDB mientras se corre el proceso. |
-| `show dbs`                      | Imprime las bbdd disponibles.             |
-| `db`                            | Imprime la base de datos en uso.          |
-| `use bd`                        | Se cambia a la base de datos llamada `bd`. Si no existe, la crea al generar la primera colección. |
-| `show collections`              | Dentro de la bd para ver las colecciones. |
-| `mongoimport --db bd --collection col --drop --file col.json --jsonArray` | Importa un `col.json` en la db llamada `bd` como colección `col`. |
+| Command                         | Description                     |
+| -------------                   | :-------------                  |
+| `sudo systemctl start mongod`   | Initiates MongoDB process.      |
+| `sudo systemctl status mongod`  | Check process status.           |
+| `sudo systemctl stop mongod`    | Stop the process.               |
+| `sudo systemctl restart mongod` | Restart the process.            |
+| `mongo`                         | Initiates MongoDb console while running the process. |
+| `show dbs`                      | Print available databases.      |
+| `db`                            | Print the db in use.            |
+| `use db`                        | Change to `db` database. If it doesn't exist, it creates it when the fisrt collection is generated. |
+| `show collections`              | Inside the db to print all collection names. |
+| `mongoimport --db db --collection col --drop --file col.json --jsonArray` | Import `col.json` in `db` database as `col` collection. |
 
-## Operaciones sobre colecciones
+## Operations on coleccions
 
-Sea `coll` el nombre de una colección en la base de datos utilizada.
+Let `coll` be the name of a collection in the db in use.
 
-| Comando                       | Descripción                       |
+| Command                       | Description                       |
 | -------------                 |:-------------                     |
-| `db.coll.insert(datos)`         | Inserta los datos en la colección `coll` de la base de datos en uso (datos es un objeto valor-llave).  |
-| `db.coll.find({atr_1:input}, {atr_2:1, atr_3:0})` | Evalúa un match en el `atr_1` y proyecciones en `atr_2` y `atr_23` (recomendado omitir los `_id`).  |
-| `db.coll.find({atr_1: [input_1, ...]})`       | Los elementos cuyo atributo haga match con alguno de la lista. |
-| `comando.pretty()`	            | Imprime el resultado más legible para humanos. |
-| `comando.sort({atr: 1})`        | Ordena por atributo.              |
-| `db.coll.find({atr:{$regex:"input"}})` | Busca que `atr` contenga el regex `input` (los strings van entre comillas). |
-| `$gt: input` | Mayor que `input` (`$gte` mayor o igual). |
-| `$lt: input` | Mayor que `input` (`$lte` menor o igual). |
-| `$ne: input` | Distinto a `input`. |
-| `$and: [condición_1, ...]`  | Revisa que se cumplan todas las condiciones. |
-| `$or: [condición_1, ...]`   | Revisa que se cumplan las condiciones por un OR. |
-| `$all: [input_1, ...]`      | Verifica que en una lista deben estar todos los valores dados. |
-| `$in: [input_1, ...]`				| Verifica que en una lista debe esta al menos uno de los valores dados. |
-| `$nin: [input_1, ...]`			| Verifica que en una lista no debe haber ninguno de los valores dados. |
-| `db.coll.aggregate([{$group: {_id: null, total: {$sum: "$atr"}}}])`	| Agrega y suma por el atributo. (También se puede usar `$avg`). |
-| `{$group: {_id: "$atr_1", total: {$sum: "$atr_2"}` | Agrupa por `atr_1` y suma los `atr_2`.
-| `{$group: {_id: "$atr_1", total: {$sum: {$sum: "$atr_2"}}` | Agrupa por `atr_1` y suma los valores de `atr_2` si es una lista. |
-| `{$match: {atr: input}}` | Hace match por cada elemento de una lista al agregar. |
-| `db.getCollectionInfos({name:"coll"})` | Imprime información de la colección. |
-| `db.changeUserPassword("user", "password")` | Cambiar la contraseña de la bd. |
-| `db.coll.getIndexes()` | Imprime los índices de la colección. |
-| `db.coll.createIndex({atr:1})` | Crea un índice por dicho atributo. |
-| `db.coll.createIndex({atr:"text"})`	 | Crea un índice de texto del tipo TF-IDF por dicho atributo. |
-| `db.coll.dropIndex("index")` | Drop del índice indicado. |
-| `db.coll.find({$text: {$search: "input"}})` | Utiliza el índice de texto para buscar eficietemente. |
-| `"input_1 input_2 ..."`       | Busca mediante OR los diferentes inputs (stemming: case insensitive y completa el input si al menos una palabra entera es encontrada). |
-| `" \"input textual\"  "`      | Busca textual el input (los "\" son para escapar las comillas). |
-| `" \"input_1\" \"input_2\" "` | Busca `input_1` e `input_2` ambos textuales (stemming). |
-| `"input_1 -\"input_2\" "` 		| Busca al menos un `input_1` para descartar `input_2` (también `"input_1 -input_2"`). |
-| `db.coll.find({$text: {$search: ""}}).sort({score: {$meta: "text"}})`	| Ordena el resultado de una consulta por índice. |
-| `db.coll.update({}, {$set: {atr: valor}}, false, true)`	| Actualiza `atr` de todo elemento al valor `valor`. `false` por upsert, es decir, que no inserte nuevo valor al no hacer match. `true` para modificar múltiples elementos. |
+| `db.coll.insert(data)`        | Insert data in `coll` (data is a key-value object).  |
+| `db.coll.find({attr_1:input}, {attr_2:1, attr_3:0})` | Evaluate if `attr_1` matches `input` and proyect  `attr_2` but no `attr_3` (hiding `_id` is recommended).  |
+| `db.coll.find({attr_1: [input_1, ...]})`       | Print elements which makes a match with some element of the list. |
+| `command.pretty()`	            | Print the result more human friendly. |
+| `command.sort({attr: 1})`        | Order by attribute.              |
+| `db.coll.find({attr:{$regex:"input"}})` | Evaluate if `attr` matches `input` regex (strings go between quotation marks). |
+| `$gt: input` | Great than `input` (`$gte` great than o equal). |
+| `$lt: input` | Less than `input` (`$lte` less than or equal). |
+| `$ne: input` | Not equal to `input`. |
+| `$and: [condición_1, ...]`  | Match if all conditions are satisfied. |
+| `$or: [condición_1, ...]`   | Match if at least one condition is satisfied. |
+| `$all: [input_1, ...]`      | Check if a list contains all given inputs. |
+| `$in: [input_1, ...]`				| Check if a list contains at least one of the given inputs. |
+| `$nin: [input_1, ...]`			| Check if a list doesn't contain any of the given inputs. |
+| `db.coll.aggregate([{$group: {_id: null, total: {$sum: "$attr"}}}])`	| Aggregate and sum `attr` values. (`$avg` can also be used). |
+| `{$group: {_id: "$attr_1", total: {$sum: "$attr_2"}` | Gruoup by `attr_1` and sum `attr_2` values.
+| `{$group: {_id: "$attr_1", total: {$sum: {$sum: "$attr_2"}}` | Group by `attr_1` and sum `attr_2` values if `attr_2` is a list. |
+| `{$match: {attr: input}}` | When the result is grouped in a list, check a match for every element of it. |
+| `db.getCollectionInfos({name:"coll"})`      | Print collection information. |
+| `db.changeUserPassword("user", "password")` | Change db password for a given user. |
+| `db.coll.getIndexes()`                      | Print indexes of a collection. |
+| `db.coll.createIndex({attr:1})`              | Create an index on the attributes indicated. |
+| `db.coll.createIndex({attr:"text"})`	        | Create a TF-IDF index (text index) on that attribute. |
+| `db.coll.dropIndex("index")`                | Drop an index. |
+| `db.coll.find({$text: {$search: "input"}})` | Use the text index to search efficiently. |
+| `"input_1 input_2 ..."`       | Search inputs by OR operator (stemming: case insensitive and completes the input if at least one word is found). |
+| `" \"input\"  "`      | Search a perfect match of the input ("\" is used to escape the quotation marks). |
+| `" \"input_1\" \"input_2\" "` | Search a perfect match of `input_1` or `input_2` (stemming). |
+| `"input_1 -\"input_2\" "` 		| Search at least one match of `input_1` and then discard matches with `input_2` (also `"input_1 -input_2"` works). |
+| `db.coll.find({$text: {$search: ""}}).sort({score: {$meta: "text"}})`	| Order the result of a query by index. |
+| `db.coll.update({}, {$set: {attr: value}}, false, true)`	| Update `attr` of every element with `value`. `upsert` set to `false` so it won't insert a new element when there insn't a match. And `multi` set to `true` so the query can modify multiple elements. |

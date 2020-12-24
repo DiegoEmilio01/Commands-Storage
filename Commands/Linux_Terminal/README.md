@@ -52,7 +52,7 @@ The following ilustration is a screenshot of my terminal:
 ## Useful commands
 
 | Command                     | Description           																					|
-| -------------               |:-------------                                                		|
+| -------------               | :-------------                                                	|
 | `sudo apt update`           | To update the local information about software updates.	       	|
 | `sudo apt upgrade`          | To execute the updates according to the local information.      |
 | `sudo dpkg -i program.deb`	| To install a .deb in Ubuntu.																		|

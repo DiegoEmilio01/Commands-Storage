@@ -50,7 +50,7 @@ La siguiente ilustración es una captura de pantalla de mi terminal:
 ## Comandos útiles
 
 | Comando                     | Descripción           																					|
-| -------------               |:-------------                                                		|
+| -------------               | :-------------                                                	|
 | `sudo apt update`           | Actualiza la información disponible sobre actualizaciones.			|
 | `sudo apt upgrade`          | Efectúa las actualizaciones según la información que se posee.	|
 | `sudo dpkg -i programa.deb`	| Instalar un .deb en Ubuntu.																			|
