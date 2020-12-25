@@ -2,7 +2,7 @@
 
 Here is the personalization of my Linux Terminal. You can do it too by running the command `nano ~/.bash_profile` or `nano ~/.bashrc` in the console (depending on which environment you want to modify). With `source ~/.bash_profile` command or restarting the terminal you can activate the new configuration.
 
-To use your own color palette you use [this codes](https://gist.github.com/vratiu/9780109). To see a more detailed explanation you can check [this tutorial](https://linuxhint.com/linux_terminal_customization_guide_beginners/). I recommend you to do this changes by hand, instead of using a software.
+To create your own color palette you use [this codes](https://gist.github.com/vratiu/9780109). To see a more detailed explanation you can check [this tutorial](https://linuxhint.com/linux_terminal_customization_guide_beginners/). I recommend you to do this changes by hand, instead of using a software.
 
 
 My operating system is [Xubuntu 20.04](https://xubuntu.org/news/xubuntu-20-04-released/). A section of my `.bashrc` looks like this:

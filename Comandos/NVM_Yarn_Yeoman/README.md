@@ -13,7 +13,7 @@ Maneja las versiones de [Node.js](https://nodejs.org/es/) en tu computador. Se i
 
 # [Yarn](https://yarnpkg.com/) y [Sequelize](https://sequelize.org/)
 
-Maneja paquetes.
+Yarn es un administrador de paquetes y Sequelize un ORM.
 
 | Comando                                    | Descripción                                  |
 | -------------                              | :-------------                               |
@@ -33,6 +33,6 @@ Generador de ecosistemas. Permite generar un proyecto a partir de una plantilla.
 | Comando                           | Descripción                                       |
 | -------------                     | :-------------                                    |
 | `yo @iic2513/template nombre`     | Crea aplicación `nombre` utilizando la plantilla.  |
-| `yo @iic2513/template:model nombre atr1:type,atr2:type --create` | Crea modelo `nombre` usando la plantilla. Ejecutar en la carpeta del proyecto. Tipos de datos: string, text, integer, boolean, etc. |
+| `yo @iic2513/template:model nombre atr1:tipo,atr2:tipo --create` | Crea modelo `nombre` usando la plantilla. Ejecutar en la carpeta del proyecto. Tipos de datos: string, text, integer, boolean, etc. |
 
 

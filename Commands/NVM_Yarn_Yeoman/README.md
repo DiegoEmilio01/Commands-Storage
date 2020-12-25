@@ -1,38 +1,38 @@
 # [Node Version Manager](https://github.com/nvm-sh/nvm)
 
-Maneja las versiones de [Node.js](https://nodejs.org/es/) en tu computador. Se instala NVM y al instalar una versión de Node se instala NPM.
+Manage the [Node.js](https://nodejs.org/es/) versions in your computer. When you install a Node version, Node Package Manager comes with it.
 
-| Comando               | Descripción                             |
-| -------------         | :-------------                          |
-| `nvm list`            | Lista las versiones instaladas.         |
-| `nvm install 12.18.3` | Instala la versión especificada.        |
-| `nvm use 12.18.3`     | Establece usar dicha versión.           |
-| `nvm current`         | Muestra qué versión se está utilizando. |
-| `npm install -g yo`   | Usa node package manager para instalar globalmente Yeoman. |
+| Command               | Description                                   |
+| -------------         | :-------------                                |
+| `nvm list`            | Print installed versions.                     |
+| `nvm install 12.18.3` | Install the specified version.                |
+| `nvm use 12.18.3`     | Set the specified version as current version. |
+| `nvm current`         | Print current version.                        |
+| `npm install -g yo`   | Use NPM to install Yeoman globally.           |
 
 
-# [Yarn](https://yarnpkg.com/) y [Sequelize](https://sequelize.org/)
+# [Yarn](https://yarnpkg.com/) & [Sequelize](https://sequelize.org/)
 
-Maneja paquetes.
+Yarn is a package manager and Sequelize is a promise-based Node.js ORM.
 
-| Comando                                    | Descripción                                  |
+| Command                                    | Description                                  |
 | -------------                              | :-------------                               |
-| `yarn install`                             | Instala dependencias.                        |
-| `yarn dev`                                 | Levanta la app.                              |
-| `yarn sequelize db:migrate`                | Ejecuta las migraciones.                     |
-| `yarn sequelize seed:create --name modelo` | Crea seed con nombre `modelo` (usar plural). |
-| `yarn sequelize db:seed:all`               | Ejecuta todas las seeds.                     |
-| `yarn sequelize db:migrate:undo:all`       | Deshacer las migraciones.                    |
+| `yarn install`                             | Install dependencies.                        |
+| `yarn dev`                                 | Run the application.                         |
+| `yarn sequelize db:migrate`                | Execute the migrations.                      |
+| `yarn sequelize seed:create --name model`  | Create `model` seed (use plural).            |
+| `yarn sequelize db:seed:all`               | Execute all seeds.                           |
+| `yarn sequelize db:migrate:undo:all`       | Undo all migrations.                         |
 
 
 # [Yeoman](https://yeoman.io/)
 
-Generador de ecosistemas. Permite generar un proyecto a partir de una plantilla.
+Ecosystem generator. Useful to generate a project using a template.
 
 
-| Comando                           | Descripción                                       |
+| Command                           | Description                                       |
 | -------------                     | :-------------                                    |
-| `yo @iic2513/template nombre`     | Crea aplicación `nombre` utilizando la plantilla.  |
-| `yo @iic2513/template:model nombre atr1:type,atr2:type --create` | Crea modelo `nombre` usando la plantilla. Ejecutar en la carpeta del proyecto. Tipos de datos: string, text, integer, boolean, etc. |
+| `yo @iic2513/template name`       | Create `name` app using the template.  |
+| `yo @iic2513/template:model name attr1:type,attr2:type --create` | Create `name` model using the template. Use inside the project folder. Datatypes: string, text, integer, boolean, etc. |
 
 

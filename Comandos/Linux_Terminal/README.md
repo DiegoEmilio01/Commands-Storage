@@ -2,7 +2,7 @@
 
 Personalización de mi terminal. Puedes hacer esto en tu consola de Linux usando el comando `nano ~/.bash_profile` o `nano ~/.bashrc` dependiendo del ambiente que quieres modificar. Con el comando `source ~/.bash_profile` o reiniciando la terminal se activa la configuración nueva.
 
-Para modificar los colores puedes seguir [este tutorial](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html). Para ver una explicación más detallada de lo que está ocurriendo puedes ver [este tutorial](https://linuxhint.com/linux_terminal_customization_guide_beginners/). Te recomiendo hacer la mdificación a mano.
+Para modificar los colores puedes usar [estos códigos](https://gist.github.com/vratiu/9780109). Para ver una explicación más detallada de lo que está ocurriendo puedes ver [este tutorial](https://linuxhint.com/linux_terminal_customization_guide_beginners/). Te recomiendo hacer la mdificación a mano.
 
 Mi sistema operativo es [Xubuntu 20.04](https://xubuntu.org/news/xubuntu-20-04-released/). Una parte de mi `.bash_profile` se ve así:
 
