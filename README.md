@@ -16,7 +16,7 @@
 | [NVM](https://github.com/nvm-sh/nvm) | [En](Commands/NVM_Yarn_Yeoman#node-version-manager) | [Es](Comandos/NVM_Yarn_Yeoman#node-version-manager) |
 | [PostgreSQL](https://www.postgresql.org/) | [En](Commands/PostgreSQL#postgresql) | [Es](Comandos/PostgreSQL#postgresql) |
 | [Rails](https://rubyonrails.org/)         | [En](Commands/RVM_Rails#rails)       | [Es](Comandos/RVM_Rails#rails)       |
-| [RuboCop](https://github.com/rubocop-hq/rubocop) | [En](Commands/Rubocop#rubocop)) | [Es](Comandos/Rubocop#rubocop)     |
+| [RuboCop](https://github.com/rubocop-hq/rubocop) | [En](Commands/Rubocop#rubocop) | [Es](Comandos/Rubocop#rubocop)     |
 | [RVM](https://rvm.io/)       | [En](Commands/RVM_Rails#ruby-version-manager)  | [Es](Comandos/RVM_Rails#ruby-version-manager)   |
 | [Yarn](https://yarnpkg.com/) | [En](Commands/NVM_Yarn_Yeoman#yarn--sequelize) | [Es](Comandos/NVM_Yarn_Yeoman#yarn-y-sequelize) |
 | [Yeoman](https://yeoman.io/) | [En](Commands/NVM_Yarn_Yeoman#yeoman)          | [Es](Comandos/NVM_Yarn_Yeoman#yeoman)           |
