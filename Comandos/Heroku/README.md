@@ -36,7 +36,7 @@ Resumen del procedimiento:
 
 ## Usando [Node.js](../NVM_Yarn_Yeoman) y [Sequelize](../NVM_Yarn_Yeoman)
 
-El procedimiento es similar (ver documentación en Heroku).
+El procedimiento es similar (revisar [documentación de Heroku](https://www.heroku.com/)).
 
 | Comando                                         | Descripción                           |
 | -------------                                   | :-------------                        |

@@ -35,7 +35,7 @@ Steps:
 
 ## Using [Node.js](../NVM_Yarn_Yeoman) & [Sequelize](../NVM_Yarn_Yeoman)
 
-Similar steps (see Heroku documentation).
+Similar steps (check [Heroku documentation](https://www.heroku.com/)).
 
 | Command                                         | Description               |
 | -------------                                   | :-------------            |
