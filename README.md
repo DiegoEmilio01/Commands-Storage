@@ -1,15 +1,17 @@
 # Commands-Storage
 
-- **EN:** Useful commands from numerous tools by [Diego Bustamante](https://github.com/DiegoEmilio01). Command syntax may vary depending on the tool version being used.
+- **Author:** [Diego Bustamante](https://github.com/DiegoEmilio01)
 
-- **ES:** Comandos útiles de numerosas herramientas por [Diego Bustamante](https://github.com/DiegoEmilio01). La sintaxis de los comandos puede variar dependiendo de la versión de la herramienta utilizada.
+- **EN:** Useful commands from numerous tools. Command syntax may vary depending on the tool version being used.
+
+- **ES:** Comandos útiles de numerosas herramientas. La sintaxis de los comandos puede variar dependiendo de la versión de la herramienta utilizada.
 
 
 | Tool / Herramienta                   | Commands                       | Comandos                       |
 | -------------                        | :-----:                        | :------:                       |
 | [Git](https://git-scm.com/)          | [En](Commands/Git)             | [Es](Comandos/Git)             |
 | [Heroku](https://www.heroku.com/)    | [En](Commands/Heroku)          | [Es](Comandos/Heroku)          |
-| Linux Terminal                       | [En](Commands/Linux_terminal)  | [Es](Comandos/Linux_terminal)  |
+| Linux terminal                       | [En](Commands/Linux_terminal)  | [Es](Comandos/Linux_terminal)  |
 | [MongoDB](https://www.mongodb.com/)  | [En](Commands/MongoDB)         | [Es](Comandos/MongoDB)         |
 | [NVM](https://github.com/nvm-sh/nvm) | [En](Commands/NVM_Yarn_Yeoman) | [Es](Comandos/NVM_Yarn_Yeoman) |
 | [PostgreSQL](https://www.postgresql.org/) | [En](Commands/PostgreSQL) | [Es](Comandos/PostgreSQL)      |
@@ -19,4 +21,6 @@
 | [Yarn](https://yarnpkg.com/)         | [En](Commands/NVM_Yarn_Yeoman) | [Es](Comandos/NVM_Yarn_Yeoman) |
 | [Yeoman](https://yeoman.io/)         | [En](Commands/NVM_Yarn_Yeoman) | [Es](Comandos/NVM_Yarn_Yeoman) |
 
+
+- **To Do:** Bash, LaTeX & R.
 

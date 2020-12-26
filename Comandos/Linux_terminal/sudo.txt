@@ -1,0 +1,49 @@
+- EXTENSIONES DE VSCODE
+
+code --list-extensions | xargs -L 1 echo code --install-extension
+
+
+- INSTALAR UN .DEB
+
+sudo dpkg -i package_file.deb
+
+
+- CONFIGURACION TERMINAL
+
+echo -e "\033[0;35m ¡Bienvenido, Diego!"
+
+alias profile="nano ~/.bash_profile" o "nano ~/.bashrc"
+alias sprofile="source ~/.bash_profile"
+alias ga="git add --all"
+alias gc="git commit -m"
+alias gp="git push"
+alias gs="git status"
+alias gb="git branch"
+alias gh="git checkout"
+alias jl="python3 -m jupyterlab"
+alias e="exit"
+alias hib="sudo hibernate"
+alias r="ruby"
+alias psql="sudo su - postgres"
+
+alias gita="git add --all"
+alias gitc="git commit -m"
+alias gitp="git push"
+alias gits="git status"
+alias gitb="git branch"
+alias gith="git checkout"
+
+
+
+export PS1="\[\033[0;36m\]\u \[\033[0;32m\]\w \[\033[0;37m\]>> "
+
+parse_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]\W\[\033[01;36m\]$(parse_branch) \[\033[00m\]>> '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u \W >> '
+fi
+
