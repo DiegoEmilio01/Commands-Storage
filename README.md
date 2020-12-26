@@ -11,7 +11,7 @@
 | -------------                        | :-----:                        | :------:                       |
 | [Git](https://git-scm.com/)          | [En](Commands/Git)             | [Es](Comandos/Git)             |
 | [Heroku](https://www.heroku.com/)    | [En](Commands/Heroku)          | [Es](Comandos/Heroku)          |
-| Linux terminal                       | [En](Commands/Linux_terminal)  | [Es](Comandos/Linux_terminal)  |
+| Linux terminal                       | [En](Commands/Linux_terminal#terminal-de-linux) | [Es](Comandos/Linux_terminal#terminal-de-linux) |
 | [MongoDB](https://www.mongodb.com/)  | [En](Commands/MongoDB)         | [Es](Comandos/MongoDB)         |
 | [NVM](https://github.com/nvm-sh/nvm) | [En](Commands/NVM_Yarn_Yeoman) | [Es](Comandos/NVM_Yarn_Yeoman) |
 | [PostgreSQL](https://www.postgresql.org/) | [En](Commands/PostgreSQL) | [Es](Comandos/PostgreSQL)      |
