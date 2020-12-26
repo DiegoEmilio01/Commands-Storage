@@ -1,156 +1,156 @@
 # [PostgreSQL](https://www.postgresql.org/)
 
-Clickea para una [guía de instalación](https://www.postgresql.org/download/) en distintos sistemas operativos. `PSQL` se usará como abreviatura para PostgreSQL. Esta guía está pensada para la versión 12.2.
+Click to go to an [installation guide](https://www.postgresql.org/download/) for many operating systems. From now on `PSQL` will be used to reference PostgreSQL. This guide is base on the version 12.2 of this software.
 
-## Comandos sobre  administración
+## Administration commands
 
-| Comando                    | Descripción                     |
-| -------------              |:-------------                   |
-| `sudo su - postgres`         | Entra al servidor de PSQL. |
-| `sudo -u usuario psql bd`    | Entra directo a la base de datos `bd` logueado como `usuario`. |
-| `psql`                       | Entrar a PSQL desde el servidor. |
-| `create user usuario with password 'contraseña';` | Crea el usuario `usuario` con contraseña `contraseña` en PSQL |
-| `alter user usuario with superuser;`  | Le da a `usuario` permisos de super user. |
-| `createdb bd`     | Crea base de datos de nombre `bd` |
-| `psql bd`     | Para usar la base de datos `bd`. |
-| `\l`  | En PSQL para imprimir los nombres de las bbdd. |
-| `\d`  | En PSQL para imprimir los nombres de las tablas. |
-| `\du` | En PSQL para imprimir los nombres de los usuarios. |
-| `\df` | En PSQL para imprimir los nombres de los procedimientos almacenados. |
-| `\COPY entidad(atr_1, atr_2) from 'entidad.csv' DELIMITER ',' CSV HEADER`  | Con la tabla creada, la pobla de datos desde un `.csv`. Poner los atributos en el orden del csv (se conserva el orden de creación). |
-| `\c bd usuario` | Cambia a la base de datos `bd` utilizando usuario `usuario`.
+| Command                     | Description                                                 |
+| -------------               | :-------------                                              |
+| `sudo su - postgres`        | Start PSQL server.                                          |
+| `sudo -u name psql db`      | Enter directly to `db` PSQL database loggued as `name`.     |
+| `psql`                      | Enter to PSQL when running the PSQL server.                 |
+| `create user name with password 'pass';` | Create `name` PSQL user with `pass` password.  |
+| `alter user name with superuser;`  | Give `name` superuser credentials.                   |
+| `createdb db` | Create `db` database                                         |
+| `psql db`     | Set `db` as being used.                                      |
+| `\l`          | Print all database names (run in PSQL).                        |
+| `\d`          | Print all table names.                      |
+| `\du`         | Print all user names..                    |
+| `\df`         | Print all stored procedure names.  |
+| `\COPY entity(attr_1, attr_2) from 'entity.csv' DELIMITER ',' CSV HEADER`  | Having the table already created, insert the `.csv` data. The attributes needs to be in the `.csv` order. |
+| `\c db name`  | Set `db` as being used and log in as `name`.
 
 
-## Modificar tablas
+## Table modifications
 
-Sea `tabla` el nombre de una tabla en la base de datos utilizada.
+Let `table` be the name of a table in the database in use.
 
-| Comando                       | Descripción                       |
+| Command                       | Description                       |
+| -------------                 | :-------------                    |
+| `CREATE TABLE table (attr_1 type PRIMARY KEY, ..., attr_n type, FOREIGN KEY (attr_i) REFERENCES table_2(attr));` | Create a table where `type` is a PSQL [datatype](https://www.postgresql.org/docs/9.5/datatype.html) (it depends on the version).  |
+| `INSERT INTO table VALUES(0, 'string', 'YYYY-MM-DD', ..., attr_n);` | Insert a tuple in the table. `INSERT` and `DELETE` can be nested querys.  |
+| `ALTER TABLE table DROP COLUMN attr;` | Delete `attr` from all tuples in `table`. |
+| `ALTER TABLE table ADD COLUMN attr type NOT NULL DEFAULT '';`  | Add a not null column with `''` as a defautl value. |
+| `ALTER TABLE table ALTER COLUMN col SET NOT NULL;` | Set an attribute as not null. |
+| `ALTER TABLE table ADD CONSTRAINT constraint_name FOREIGN KEY (attr1) REFERENCES table(attr2);` | Add a foreign key to a table. |
+| `DELETE FROM table WHERE condition;` | Delete all tuples that satisfy the contition. |
+| `DROP TABLE IF EXISTS table;` | Delete a table if exists. |
+| `UPDATE table SET attribute=input WHERE condition;` | Update all tuples that satisfy the contition. |
+| `ALTER TABLE table DROP CONSTRAINT table_attr_fkey;` | Delete a reference to an external table. |
+| `CREATE SEQUENCE table_attr_seq START WITH max_attr + 1;` | Create a sequence. Useful to simulate a `SERIAL` datatype. |
+| `ALTER SEQUENCE table_attr_seq OWNED BY table.attr;` | Assign the sequence to an attribute. |
+| `ALTER TABLE table ALTER COLUMN attr SET DEFAULT nextval('table_attr_seq');`	| Set `table` `attr` to follow the sequence assigned (set `attr` to not null if is not). |
+
+
+## Relacional SQL
+
+
+| Command                       | Description                       |
 | -------------                 |:-------------                     |
-| `CREATE TABLE tabla (atr_1 tipo PRIMARY KEY, ..., atr_n tipo, FOREIGN KEY (atr_i) REFERENCES tabla_2(atr));` | Cra una tabla donde `tipo` es un [tipo de datos](https://www.postgresql.org/docs/9.5/datatype.html) de PSQL (ojo con la versión).  |
-| `INSERT INTO tabla VALUES(0, 'string', 'YYYY-MM-DD', ..., atr_n);` | Insertar una tupla en la tabla. Tanto con INSERT como DELETE se pueden hacer consultas anidadas.  |
-| `ALTER TABLE tabla DROP COLUMN atr;` | Borra la columna `atr`. |
-| `ALTER TABLE tabla ADD COLUMN atr tipo NOT NULL DEFAULT '';`  | Añade una columna no nula con valor por default. |
-| `ALTER TABLE tabla ALTER COLUMN col SET NOT NULL;` | Establece una columna como no nula. |
-| `ALTER TABLE tabla ADD CONSTRAINT constraint_name FOREIGN KEY (atr1) REFERENCES tabla(atr2);` | Agrega foreign key. |
-| `DELETE FROM tabla WHERE condicion;` | Borrar todas las tuplas que cumplan la condición. |
-| `DROP TABLE IF EXISTS tabla;` | Borra la tabla si existe. |
-| `UPDATE tabla SET atributo=input WHERE condición;` | Actualiza todas las tuplas que cumplan la condición. |
-| `ALTER TABLE tabla DROP CONSTRAINT tabla_atr_fkey;` | Borra una referencia. |
-| `CREATE SEQUENCE tabla_atr_seq START WITH maximo_atr + 1;` | Crea una secuencia para simular el datatype SERIAL. |
-| `ALTER SEQUENCE tabla_atr_seq OWNED BY tabla.atr;` | Asignarle una tabla y un atributo a la secuencia. |
-| `ALTER TABLE tabla ALTER COLUMN atr SET DEFAULT nextval('tabla_atr_seq');`	| Setear que el `atr` de la `tabla` de rige por la secuencia (setear a not null si no lo es). |
+| `SELECT DISTINCT attribute_1, ..., attribute_n INTO table`	| **Projection**. `DISTINCT` for the answer to be a set. `INTO` inserts the values in another table (`IN external_db` can be used), and the values can be save in a variable. |
+| `WHERE condition_1 AND cond_2 OR NOT cond_3` | **Selection**. Conditions like `=`, `>=`, `<`, `<>` (distinct), etc. can be used. |
+| `attr LIKE '_input%'` | Check a match. Use `%` to make match with many characters or '\_' with just one. |
+| `attr IN query` | Check if `attr` is in the result of `query`. |
+| `attr operator ANY/ALL (subquery)` | Used to compare an attribute with a subquery result. `All` returns `TRUE` if the condition is `TRUE` for every tuple (non-monotonic). `ANY` is similar but `TRUE` if there is any (monotonic). |
+| `attr ~* regex`         | Check a case-insensitive regex match (without `*` for case-sensitive). |
+| `EXISTS (subquery)`     | `TRUE` when the subquery returns at least one tuple. |
+| `||`                    | String concatenation. |
+| `FROM table_1, table_2` | **Cross product** of both tables (can be extended). |
+| `SELECT attributes FROM table_1, table_2 WHERE condition` | **Join** of both tables. |
+| `query_1 UNION query_2` | **Union**. Work with sets, there aren't duplicates. `UNION ALL` returns with duplicates. |
+| `query_1 INTERSECT query_2` | **Intersection**. |
+| `query AS new_name` | **Rename** a subquery. Tables, aggregations or attributes can also be renamed. |
+| `query_1 EXCEPT query_2` | **Difference**. Non-monotonic operator. |
 
+## Aggregation
 
-## SQL relacional
+| Command                 | Description                   |
+| -------------           | :-------------                 |
+| `COUNT(DISTINCT attr)`  | Count how many different values are.  |
+| `MAX(attr)`             | Return the maximum of `attr`. |
+| `MIN(attr)`             | Return the minimum of `attr`. |
+| `SUM(attr)`             | Sum a numeric attribute when there is aggregation by other attribute. |
+| `GROUP BY attr`         | **Aggregation** by `attr`. Include all projected attributes (frequently used with `COUNT`). |
+| `HAVING condition`      | After `GROUP BY` and before `ORDER BY`. Used for selection in a aggregation (aliases can't be used). |
+| `ORDER BY attr`         | **Order** by `attr`. `ASC` or `DESC` at the end of the query. |
 
+## Iteration
 
-| Comando                       | Descripción                       |
-| -------------                 |:-------------                     |
-| `SELECT DISTINCT atributo_1, ..., atributo_n INTO tabla`	| **Proyección**. El `DISTINCT` para que sean conjuntos. `INTO` inserta las columnas seleccionadas en otra tabla (IN external_db), también se pueden guardar valores en variables. |
-| `WHERE condicion_1 AND cond_2 OR NOT cond_3` | **Selección**. Condiciones como `=`, `>=`, `<`, `<>` (distinto), etc. |
-| `atr LIKE '_input%'` | Para hacer match. Se usa `%` para hacer match con varios carácteres y '\_' uno sólo. |
-| `atr IN consulta` | Ve que esté dentro del conjunto (elimina duplicados). |
-| `relacion_binaria ANY/ALL (subconsulta)` | Usados para comparar un atributo con otra subconsulta. `All` es para todo (no monótono) y `ANY` es existe un (monónoto). |
-| `atr ~* regex` | Permite utilizar regex case-insensitive (sin `*` para case-sensitive). |
-| `EXISTS (subconsulta)` | Cuando la subconsulta retorna al menos una tupla, el operador retorna `true` y `false` caso contrario. |
-| `||` | Concatenar strings. |
-| `FROM tabla_1, tabla_2` | **Producto Cruz** de 2 tablas (puede extenderse). |
-| `SELECT atributos FROM tabla_1, tabla_2 WHERE condicion` | **Join** de ambas tablas. |
-| `consulta_1 UNION consulta_2` | **Union**. Elimina duplicados porque trabaja con conjuntos. `UNION ALL` no elimina duplicados. |
-| `consulta_1 INTERSECT consulta_2` | **Intersección**. |
-| `consulta AS nuevo_nombre` | **Renombrar** subconsulta. También se puede renombrar una tabla, agregación o atributos. |
-| `consulta_1 EXCEPT consulta_2` | **Diferencia**. Operador no monótono. |
-
-## Agregación
-
-| Comando             | Descripción                   |
-| -------------       |:-------------                 |
-| `COUNT(DISTINCT atr)` | Cuenta el número de valores diferentes.  |
-| `MAX(atr)`            | Arroja el valor máximo de dicha columna. |
-| `MIN(atr)`            | Arroja el valor mínimo de dicha columna. |
-| `SUM(atr)`            | Suma cierto atributo numérico al agrupar por otro atributo. |
-| `GROUP BY atr`      | **Agrupa** por atributo, incluir todos los que se proyecten (se usa comúnmente con el `COUNT`). |
-| `HAVING condicion`  | Después del `GROUP BY` y antes del `ORDER BY`. Es para condicionar agregaciones (no los alias). |
-| `ORDER BY atr`      | **Ordena** por atributo. `ASC` o `DESC` al final de la consulta. |
-
-## Iteración
-
-También existen `WHILE` y `LOOP`, no obligatorio tener que declarar una variable. En el último caso hay que declarar la variable como `RECORD`.
+`WHILE` and `LOOP` also exists. Is not mandatory to declare ato include an empty variable. In thr aftet that last of the following cases the variable must be `RECORD` type.
 
 ```sql
 FOR var IN a...b LOOP	
-    sentencias_sql
+    sql_statement
 END LOOP;
 
-FOR var_tipo_record IN consulta_sql LOOP
-    sentencias_sql
+FOR record_var IN sql_query LOOP
+    sql_statement
 END LOOP;
 ```
 
-## Condicionales
+## Conditionals
 
 ```sql
-IF condición_booleana THEN
-    sentencias_sql
+IF boolean_condition THEN
+    sql_statement
 ELSE
-    sentencias_sql
+    sql_statement
 END IF;
 
-CASE WHEN condición_booleana THEN sentencias_sql;
+CASE WHEN boolean_condition THEN sql_statement;
     ...
-    WHEN condición_booleana_n THEN sentencias_sql_n-1;
-    ELSE sentencias_sql_n;
+    WHEN boolean_condition_n THEN sql_statement_n-1;
+    ELSE sql_statement_n;
 END CASE;
 ```
 
 
-## Esquema de recursión
+## Recursion
 
 ```sql
-WITH RECURSIVE tabla_recursiva(atr_1, atr_2) AS
+WITH RECURSIVE recursive_table(attr_1, attr_2) AS
 (
-   SELECT * FROM tabla
+   SELECT * FROM table
    UNION
-   SELECT T.atr_1, TR.atr_2 FROM tabla AS T, tabla_recursiva AS TR WHERE condición
+   SELECT T.attr_1, TR.attr_2 FROM table AS T, recursive_table AS TR WHERE condition
 )
-SELECT * FROM tabla_recursiva;
+SELECT * FROM recursive_table;
 ```
 
 
-## SQL dinámico
+## Dynamic SQL
 
-`EXECUTE` ejecuta el string de una consulta con variables dinámicas que pueden cambiar.
+`EXECUTE` executes a query, represented as a string, with dynamic variables (its values can change during execution).
 
 ```sql
-EXECUTE 'consulta con $1, ..., $n;' USING atr_1, ..., atr_n;
+EXECUTE 'query with $1, ..., $n;' USING attr_1, ..., attr_n;
 ```
 
-## Procedimientos almacenados en PL/PgSQL
+## Stored procedures [PL/PgSQL](https://www.postgresql.org/docs/12/plpgsql.html)
 
-Se puede guardar un procedimiento en `nombre_fn.sql` (en cualquier carpeta sin ; al final). La consola se debe correr en dicha carpeta y para importarla en PSQL se usa `\i nombre_fn.sql`.
+A procedure can be stored in Stored in a file like `fn_name.sql` (without the `;` at the end of the procedure) or within the database in a special table. You can run the terminal in the folder where the file is stored to import the procedure to PSQL with `\i fn_name.sql`.
 
 ```sql
-# Declaración
-CREATE OR REPLACE FUNCTION nombre_fn (atr_1 tipo_1, ..., atr_n tipo_n)
-RETURNS tipo_retorno AS
-# Usar void cuando no se retorna nada. Puede ser INTEGER, TABLE(atr_1 tipo_1,...), etc.
+# Declaration
+CREATE OR REPLACE FUNCTION fn_name (attr_1 type_1, ..., attr_n type_n)
+RETURNS result_type AS
+# Use void when nothing is returned. Valid types are: INTEGER, TABLE(attr_1 type_1,...), etc.
 $$
 DECLARE
-    declaración_de_var;   # Declara variables propias de la función y su tipo.
+    variable_declaration;   # Declare procedure variables and its type.
 BEGIN
-    sentencias_sql RETURN var; # Incluye consultas.
-    # RETURN QUERY para asignar la consulta a la tabla declarada como variable y después igual viene un RETURN.
+    sql_statement RETURN var; # Can include querys.
+    # 'RETURN QUERY' to assign the query to a table declared as variable. Is mandatory to include an empty `RETURN` after that.
 END
 $$ LANGUAGE plpgsql;
 
-# Uso
-SELECT nombre_fn(input_1, ..., input_n);
+# Ussage of the procedure
+SELECT fn_name(input_1, ..., input_n);
 
-# Importar prodecimiento en una base de datos
-\i nombre_fn.sql
+# To import a stored procedure in a database
+\i fn_name.sql
 
-# Uso de variables en las sentencias
+# Variable declaration
 var := to_char(i, '999999999');
-# Variable declarada anteriormente y se define su valor como el resultado de una función.
+# The value of the previous variable is set as the result of another function.
 ```
