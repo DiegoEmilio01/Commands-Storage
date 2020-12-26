@@ -27,7 +27,7 @@ Steps:
 - Open the app.
 
 | Command                         | Description                           |
-| -------------                   |:-------------                         |
+| -------------                   | :-------------                        |
 | `heroku buildpacks:set -a name heroku/ruby` | Set `name` app language.  |
 | `heroku run rake db:migrate`    | Run migrations in Heroku.             |
 | `heroku run rake db:seed`       | Run app seed in Heroku.               |
@@ -38,7 +38,7 @@ Steps:
 Similar steps (see Heroku documentation).
 
 | Command                                         | Description               |
-| -------------                                   |:-------------             |
+| -------------                                   | :-------------            |
 | `heroku buildpacks:set -a name heroku/nodejs`   | Set `name` app language.  |
 | `git subtree push --prefix path heroku master`  | To deploy a subdirectory with a Node.js app ([original info](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f)). `path` is the route to the app folder. |
 | `heroku run sequelize db:migrate`         | Run migrations in Heroku (similar use to Sequelize). |
