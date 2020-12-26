@@ -1,4 +1,4 @@
-<h1 id=linux_terminal>Linux Terminal</h1>
+# Linux Terminal
 
 Here is the personalization of my Linux Terminal. You can do it too by running the command `nano ~/.bash_profile` or `nano ~/.bashrc` in the console (depending on which environment you want to modify). With `source ~/.bash_profile` command or restarting the terminal you can activate the new configuration.
 
