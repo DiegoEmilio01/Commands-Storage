@@ -1,6 +1,6 @@
 # [Heroku](https://www.heroku.com/)
 
-Ejecutar comandos dentro del repositorio de la app.
+Excute commands inside the folder of the repository.
 
 | Command                                 | Description                         |
 | -------------                           | :-------------                      |

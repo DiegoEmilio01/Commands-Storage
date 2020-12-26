@@ -1,6 +1,6 @@
 # [MongoDB](https://www.mongodb.com/)
 
-Click to go to an installation guide for [Debian](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/) or [Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/). The commands that involves processes may not be the same, this guide was made assuming [Debian Buster](https://www.debian.org/releases/buster/index.es.html) operating system and [systemd](https://wiki.debian.org/systemd) as system and service manager.
+Click to go to an installation guide for [Debian](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/) or [Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/). The commands that involves processes may not be the same, this guide was made assuming [Debian Buster](https://www.debian.org/releases/buster/index.en.html) operating system and [systemd](https://wiki.debian.org/systemd) as system and service manager.
 
 ## Processes and administration commands
 

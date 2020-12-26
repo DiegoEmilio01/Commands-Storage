@@ -46,7 +46,7 @@ Let `table` be the name of a table in the database in use.
 
 
 | Command                       | Description                       |
-| -------------                 |:-------------                     |
+| -------------                 | :-------------                    |
 | `SELECT DISTINCT attribute_1, ..., attribute_n INTO table`	| **Projection**. `DISTINCT` for the answer to be a set. `INTO` inserts the values in another table (`IN external_db` can be used), and the values can be save in a variable. |
 | `WHERE condition_1 AND cond_2 OR NOT cond_3` | **Selection**. Conditions like `=`, `>=`, `<`, `<>` (distinct), etc. can be used. |
 | `attr LIKE '_input%'` | Check a match. Use `%` to make match with many characters or '\_' with just one. |
