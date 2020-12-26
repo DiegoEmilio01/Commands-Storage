@@ -54,7 +54,7 @@ Sea `tabla` el nombre de una tabla en la base de datos utilizada.
 | `atr operador ANY/ALL (subconsulta)` | Usados para comparar un atributo con otra subconsulta. `All` es que  `atr` se compara por `operador` exitosamente con cada elemento del resultado (no monótono). `ANY` es similar pero para algún elemento (monónoto). |
 | `atr ~* regex` | Permite utilizar regex case-insensitive (sin `*` para case-sensitive). |
 | `EXISTS (subconsulta)` | Cuando la subconsulta retorna al menos una tupla, el operador retorna `TRUE` y `FALSE` caso contrario. |
-| `||` | Concatenar strings. |
+| `\|\|` | Concatenar strings. |
 | `FROM tabla_1, tabla_2` | **Producto cruz** de 2 tablas (puede extenderse). |
 | `SELECT atributos FROM tabla_1, tabla_2 WHERE condicion` | **Join** de ambas tablas. |
 | `consulta_1 UNION consulta_2` | **Union**. Elimina duplicados porque trabaja con conjuntos. `UNION ALL` no elimina duplicados. |

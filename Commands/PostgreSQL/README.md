@@ -54,7 +54,7 @@ Let `table` be the name of a table in the database in use.
 | `attr operator ANY/ALL (subquery)` | Used to compare an attribute with a subquery result. `All` returns `TRUE` if the condition is `TRUE` for every tuple (non-monotonic). `ANY` is similar but `TRUE` if there is any (monotonic). |
 | `attr ~* regex`         | Check a case-insensitive regex match (without `*` for case-sensitive). |
 | `EXISTS (subquery)`     | `TRUE` when the subquery returns at least one tuple. |
-| `||`                    | String concatenation. |
+| `\|\|`                    | String concatenation. |
 | `FROM table_1, table_2` | **Cross product** of both tables (can be extended). |
 | `SELECT attributes FROM table_1, table_2 WHERE condition` | **Join** of both tables. |
 | `query_1 UNION query_2` | **Union**. Work with sets, there aren't duplicates. `UNION ALL` returns with duplicates. |
