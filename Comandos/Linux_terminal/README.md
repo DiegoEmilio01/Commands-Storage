@@ -54,4 +54,4 @@ La siguiente ilustración es una captura de pantalla de mi terminal:
 | `sudo apt update`           | Actualiza la información disponible sobre actualizaciones.			|
 | `sudo apt upgrade`          | Efectúa las actualizaciones según la información que se posee.	|
 | `sudo dpkg -i programa.deb`	| Instalar un .deb en Ubuntu.																			|
-| `code --list-extensions | xargs -L 1 echo code --install-extension` | Imprime en consola un código para instalar las extensiones [VS Code](https://code.visualstudio.com/) instaladas localmente. |
+| `code --list-extensions \| xargs -L 1 echo code --install-extension` | Imprime en consola un código para instalar las extensiones [VS Code](https://code.visualstudio.com/) instaladas localmente. |

@@ -56,4 +56,4 @@ The following ilustration is a screenshot of my terminal:
 | `sudo apt update`           | To update the local information about software updates.	       	|
 | `sudo apt upgrade`          | To execute the updates according to the local information.      |
 | `sudo dpkg -i program.deb`	| To install a .deb in Ubuntu.																		|
-| `code --list-extensions | xargs -L 1 echo code --install-extension` | To print a command that installs all the [VS Code](https://code.visualstudio.com/) extensions installed. |
+| `code --list-extensions \| xargs -L 1 echo code --install-extension` | To print a command that installs all the [VS Code](https://code.visualstudio.com/) extensions installed. |
