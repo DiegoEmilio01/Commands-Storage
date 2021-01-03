@@ -46,7 +46,7 @@ parse_branch() {
 PS1='\[\033[01;32m\]\u \[\033[01;34m\]\W\[\033[01;36m\]$(parse_branch) \[\033[00m\]>> '
 ```
 
-Si deseas que [Visual Studio Code](https://code.visualstudio.com/) utilice la confiruración que creaste puedes revisar [este tutorial sobre configuraciones de VS](https://code.visualstudio.com/docs/getstarted/settings) y agregar `"terminal.integrated.shellArgs.windows": ["--login", "-i"],` a las configuraciones de la terminal como dice [esta respuesta](https://stackoverflow.com/a/50332206).
+Si deseas que [Visual Studio Code](https://code.visualstudio.com/) utilice la confiruración que creaste puedes revisar [este tutorial sobre configuraciones de VS](https://code.visualstudio.com/docs/getstarted/settings) y agregar `"terminal.integrated.shellArgs.windows": ["--login", "-i"],` a las configuraciones de la terminal tal como señala [esta respuesta](https://stackoverflow.com/a/50332206).
 
 ## Prompt personalizado:
 
