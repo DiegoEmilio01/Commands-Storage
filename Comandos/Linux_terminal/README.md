@@ -25,7 +25,7 @@ alias gith="git checkout"
 alias r="ruby"
 alias psql="sudo su - postgres"
 
-# Personalización del prompt
+# Personalización del prompt en Linux
 
 parse_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -36,7 +36,17 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u \W >> '
 fi
+
+# En Windows
+
+parse_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+PS1='\[\033[01;32m\]\u \[\033[01;34m\]\W\[\033[01;36m\]$(parse_branch) \[\033[00m\]>> '
 ```
+
+Si deseas que [Visual Studio Code](https://code.visualstudio.com/) utilice la confiruración que creaste puedes revisar [este tutorial sobre configuraciones de VS](https://code.visualstudio.com/docs/getstarted/settings) y agregar `"terminal.integrated.shellArgs.windows": ["--login", "-i"],` a las configuraciones de la terminal como dice [esta respuesta](https://stackoverflow.com/a/50332206).
 
 ## Prompt personalizado:
 

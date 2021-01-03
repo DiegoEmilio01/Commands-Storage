@@ -27,7 +27,7 @@ alias r="ruby"
 alias psql="sudo su - postgres"
 
 
-# Prompt personalization
+# Prompt personalization on Linux
 
 parse_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -38,7 +38,17 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u \W >> '
 fi
+
+# On Windows
+
+parse_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+PS1='\[\033[01;32m\]\u \[\033[01;34m\]\W\[\033[01;36m\]$(parse_branch) \[\033[00m\]>> '
 ```
+
+If you want [Visual Studio Code](https://code.visualstudio.com/) to use your own configuration check [this tutorial about VS configs](https://code.visualstudio.com/docs/getstarted/settings) and add `"terminal.integrated.shellArgs.windows": ["--login", "-i"],` to the terminal configs as said in [this answer](https://stackoverflow.com/a/50332206).
 
 ## Personalized prompt:
 
